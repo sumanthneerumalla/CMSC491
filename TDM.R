@@ -10,8 +10,8 @@ tokenSecret <- "qbtGWl0rKMs76tRr6iZb53uQQOuVSKDDHvxDM95QH76WV"
 
 setup_twitter_oauth(api_key,api_secret,token,tokenSecret)
 
-Colatweets <- searchTwitter("Coca Cola",n=25)
-Pepsitweets <- searchTwitter("Pepsi Cola",n=25)
+Colatweets <- searchTwitter("Coca Cola",n=25,lang='en)
+Pepsitweets <- searchTwitter("Pepsi Cola",n=25, lang='en')
 
 tweets_txt <- ldply(Colatweets,statusText)
 tweets_vect = tweets_txt$V1
@@ -19,7 +19,7 @@ tweets_vect = tweets_txt$V1
 tweets_corpus <- Corpus(VectorSource(tweets_vect))
 tweets_corpus <- tm_map(tweets_corpus,tolower)
 tweets_corpus <- tm_map(tweets_corpus,removePunctuation)
-tweets_corpus <- tm_map(tweets_corpus, function(x>removeWords(x,stopwords()))
+tweets_corpus <- tm_map(tweets_corpus, function(x,removeWords(x,stopwords()))
 
 tweets_corpus <- tm_map(tweets_corpus,PlainTextDocument)
 
