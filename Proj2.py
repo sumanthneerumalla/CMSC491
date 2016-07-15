@@ -32,6 +32,8 @@ for sentence in sentences:
     for word in nltk.tokenize.word_tokenize(sentence):
         words.append(word.lower())
 
+
+
 #Calculate the frquency distribution
 frqDist = nltk.FreqDist(words)
 
