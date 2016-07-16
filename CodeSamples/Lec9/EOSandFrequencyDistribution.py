@@ -125,4 +125,3 @@ print "for Hillary Clinton Economic Policy"
 for (entity, pos) in dChunk:
 	if entity.istitle():
 		print '\t%s (%s)' % (entity, dChunk[entity, pos])
-

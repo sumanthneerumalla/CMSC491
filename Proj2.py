@@ -103,10 +103,10 @@ for (entity, pos) in dChunk:
 
 #Create 3 sentence summary from article text
 #This portion did not work with the 'russel.pyc' component that was on blackboard so it is being commented out
-#
-# import russel as ru
-# articleSum = ru.summarize(articleText)
-# print "Summary of Article"
-# print "Three Sentence Summary"
-# for each in articleSum['top_n_summary']:
-#     print removeUnicode(each)
+
+import russell as ru
+articleSum = ru.summarize(articleText)
+print "Summary of Article"
+print "Three Sentence Summary"
+for each in articleSum['top_n_summary']:
+    print removeUnicode(each)
