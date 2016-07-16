@@ -110,3 +110,24 @@ print "Summary of Article"
 print "Three Sentence Summary"
 for each in articleSum['top_n_summary']:
     print removeUnicode(each)
+
+search = nltk.BigramCollocationFinder.from_words(articleAscii)
+
+# filter out collocations that do not occur at least 2 times
+search.apply_freq_filter(2)
+
+# Filter out collocations that have stopwords
+search.apply_word_filter(lambda skip: skip in skips)
+
+# We use the Jaccard Index to find our bigrams
+# idxJaccard = nltk.metrics.BigramAssocMeasures.jaccard
+from nltk import BigramAssocMeasures
+
+idxJaccard = BigramAssocMeasures.jaccard
+
+bigrams = search.nbest(idxJaccard, 25)
+
+print "#================================="
+print "Bigrams"
+for bigram in bigrams:
+    print str(bigram[0]).encode('utf-8'), " ", str(bigram[1]).encode('utf-8')
